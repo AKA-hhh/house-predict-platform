@@ -1,0 +1,523 @@
+{
+  "experiment": "E1_模型对比",
+  "version_id": "ds-20261011-232410-ef5c",
+  "split_protocol": "time",
+  "train_rows": 254560,
+  "test_rows": 63640,
+  "results": [
+    {
+      "label": "线性基线 · 全量特征",
+      "algo_id": "linear_ols",
+      "algo_name": "线性回归基线（OLS）",
+      "params": {
+        "fit_intercept": true,
+        "positive": false
+      },
+      "feature_profile": "full",
+      "target_mode": "absolute",
+      "n_features": 26,
+      "test": {
+        "MAE": 16142.59,
+        "RMSE": 20081.5,
+        "R2": 0.306,
+        "MedAE": 13775.69,
+        "MAPE(%)": 22.79,
+        "Within10%(%)": 14.45,
+        "Within20%(%)": 39.75,
+        "n_samples": 63640
+      },
+      "train": {
+        "MAE": 5599.17,
+        "RMSE": 7910.99,
+        "R2": 0.7859,
+        "MedAE": 4324.67,
+        "MAPE(%)": 16.47,
+        "Within10%(%)": 40.54,
+        "Within20%(%)": 71.63,
+        "n_samples": 254560
+      },
+      "fit_seconds": 0.08,
+      "wall_seconds": 0.24,
+      "top_features": [
+        {
+          "feature": "trade_year",
+          "value": 10919.7401
+        },
+        {
+          "feature": "build_year",
+          "value": -6239.7407
+        },
+        {
+          "feature": "building_age",
+          "value": -6203.0994
+        },
+        {
+          "feature": "lng",
+          "value": -3312.2852
+        },
+        {
+          "feature": "kitchen",
+          "value": -3100.5344
+        },
+        {
+          "feature": "ladder_ratio",
+          "value": 2808.8103
+        },
+        {
+          "feature": "lat",
+          "value": 1983.6094
+        },
+        {
+          "feature": "drawing_room",
+          "value": 1739.7948
+        }
+      ]
+    },
+    {
+      "label": "岭回归 · 全量特征",
+      "algo_id": "ridge",
+      "algo_name": "岭回归（L2 正则线性）",
+      "params": {
+        "alpha": 1.0
+      },
+      "feature_profile": "full",
+      "target_mode": "absolute",
+      "n_features": 26,
+      "test": {
+        "MAE": 16141.27,
+        "RMSE": 20080.82,
+        "R2": 0.306,
+        "MedAE": 13773.92,
+        "MAPE(%)": 22.79,
+        "Within10%(%)": 14.46,
+        "Within20%(%)": 39.76,
+        "n_samples": 63640
+      },
+      "train": {
+        "MAE": 5599.7,
+        "RMSE": 7911.22,
+        "R2": 0.7859,
+        "MedAE": 4325.48,
+        "MAPE(%)": 16.47,
+        "Within10%(%)": 40.53,
+        "Within20%(%)": 71.63,
+        "n_samples": 254560
+      },
+      "fit_seconds": 0.03,
+      "wall_seconds": 0.29,
+      "top_features": [
+        {
+          "feature": "building_age",
+          "value": -38500.0969
+        },
+        {
+          "feature": "build_year",
+          "value": -38447.7694
+        },
+        {
+          "feature": "trade_year",
+          "value": 14142.0821
+        },
+        {
+          "feature": "community_avg_price",
+          "value": 12888.1897
+        },
+        {
+          "feature": "trade_month",
+          "value": 2107.8571
+        },
+        {
+          "feature": "area",
+          "value": -1682.5319
+        },
+        {
+          "feature": "trade_quarter",
+          "value": -1052.1708
+        },
+        {
+          "feature": "days_on_market",
+          "value": 1041.9148
+        }
+      ]
+    },
+    {
+      "label": "HGB · 全量特征",
+      "algo_id": "hgb",
+      "algo_name": "梯度提升树（HistGradientBoosting）",
+      "params": {
+        "learning_rate": 0.08,
+        "max_iter": 300,
+        "max_depth": 8,
+        "min_samples_leaf": 40,
+        "l2_regularization": 0.0,
+        "max_bins": 255
+      },
+      "feature_profile": "full",
+      "target_mode": "absolute",
+      "n_features": 26,
+      "test": {
+        "MAE": 15840.78,
+        "RMSE": 19576.14,
+        "R2": 0.3405,
+        "MedAE": 13385.62,
+        "MAPE(%)": 24.13,
+        "Within10%(%)": 20.64,
+        "Within20%(%)": 46.63,
+        "n_samples": 63640
+      },
+      "train": {
+        "MAE": 2828.35,
+        "RMSE": 4313.23,
+        "R2": 0.9364,
+        "MedAE": 1960.52,
+        "MAPE(%)": 8.39,
+        "Within10%(%)": 74.4,
+        "Within20%(%)": 94.86,
+        "n_samples": 254560
+      },
+      "fit_seconds": 1.61,
+      "wall_seconds": 7.91,
+      "top_features": [
+        {
+          "feature": "community_avg_price",
+          "value": 10006.66
+        },
+        {
+          "feature": "area",
+          "value": 607.09
+        },
+        {
+          "feature": "ladder_ratio",
+          "value": 109.94
+        },
+        {
+          "feature": "build_year",
+          "value": 82.8
+        },
+        {
+          "feature": "living_room",
+          "value": 81.89
+        },
+        {
+          "feature": "lat",
+          "value": 50.05
+        },
+        {
+          "feature": "floor_number",
+          "value": 32.85
+        },
+        {
+          "feature": "elevator",
+          "value": 21.24
+        }
+      ]
+    },
+    {
+      "label": "HGB · 去掉成交时间分量",
+      "algo_id": "hgb",
+      "algo_name": "梯度提升树（HistGradientBoosting）",
+      "params": {
+        "learning_rate": 0.08,
+        "max_iter": 300,
+        "max_depth": 8,
+        "min_samples_leaf": 40,
+        "l2_regularization": 0.0,
+        "max_bins": 255
+      },
+      "feature_profile": "no_time",
+      "target_mode": "absolute",
+      "n_features": 23,
+      "test": {
+        "MAE": 14465.18,
+        "RMSE": 16799.23,
+        "R2": 0.5143,
+        "MedAE": 13163.91,
+        "MAPE(%)": 22.37,
+        "Within10%(%)": 11.11,
+        "Within20%(%)": 41.41,
+        "n_samples": 63640
+      },
+      "train": {
+        "MAE": 3775.22,
+        "RMSE": 5460.92,
+        "R2": 0.898,
+        "MedAE": 2719.58,
+        "MAPE(%)": 11.04,
+        "Within10%(%)": 59.92,
+        "Within20%(%)": 88.95,
+        "n_samples": 254560
+      },
+      "fit_seconds": 1.49,
+      "wall_seconds": 3.83,
+      "top_features": [
+        {
+          "feature": "community_avg_price",
+          "value": 10912.05
+        },
+        {
+          "feature": "building_age",
+          "value": 4677.52
+        },
+        {
+          "feature": "build_year",
+          "value": 3159.0
+        },
+        {
+          "feature": "area",
+          "value": 272.47
+        },
+        {
+          "feature": "followers",
+          "value": 79.52
+        },
+        {
+          "feature": "ladder_ratio",
+          "value": 74.15
+        },
+        {
+          "feature": "days_on_market",
+          "value": 49.83
+        },
+        {
+          "feature": "floor_number",
+          "value": 34.03
+        }
+      ]
+    },
+    {
+      "label": "HGB · 去时间 + 相对价格目标",
+      "algo_id": "hgb",
+      "algo_name": "梯度提升树（HistGradientBoosting）",
+      "params": {
+        "learning_rate": 0.08,
+        "max_iter": 300,
+        "max_depth": 8,
+        "min_samples_leaf": 40,
+        "l2_regularization": 0.0,
+        "max_bins": 255
+      },
+      "feature_profile": "no_time",
+      "target_mode": "relative",
+      "n_features": 23,
+      "test": {
+        "MAE": 14535.09,
+        "RMSE": 16865.39,
+        "R2": 0.5105,
+        "MedAE": 13209.27,
+        "MAPE(%)": 22.43,
+        "Within10%(%)": 10.53,
+        "Within20%(%)": 40.6,
+        "n_samples": 63640
+      },
+      "train": {
+        "MAE": 3736.69,
+        "RMSE": 5479.11,
+        "R2": 0.8973,
+        "MedAE": 2637.36,
+        "MAPE(%)": 10.79,
+        "Within10%(%)": 61.03,
+        "Within20%(%)": 89.54,
+        "n_samples": 254560
+      },
+      "fit_seconds": 1.46,
+      "wall_seconds": 2.94,
+      "top_features": [
+        {
+          "feature": "building_age",
+          "value": 0.05
+        },
+        {
+          "feature": "build_year",
+          "value": 0.04
+        },
+        {
+          "feature": "area",
+          "value": 0.0
+        },
+        {
+          "feature": "living_room",
+          "value": 0.0
+        },
+        {
+          "feature": "drawing_room",
+          "value": -0.0
+        },
+        {
+          "feature": "kitchen",
+          "value": 0.0
+        },
+        {
+          "feature": "bath_room",
+          "value": -0.0
+        },
+        {
+          "feature": "room_total",
+          "value": -0.0
+        }
+      ]
+    },
+    {
+      "label": "HGB · 调参 + 去时间",
+      "algo_id": "hgb",
+      "algo_name": "梯度提升树（HistGradientBoosting）",
+      "params": {
+        "learning_rate": 0.05,
+        "max_iter": 600,
+        "max_depth": 10,
+        "min_samples_leaf": 20,
+        "l2_regularization": 0.0,
+        "max_bins": 255
+      },
+      "feature_profile": "no_time",
+      "target_mode": "absolute",
+      "n_features": 23,
+      "test": {
+        "MAE": 14442.3,
+        "RMSE": 16735.76,
+        "R2": 0.518,
+        "MedAE": 13132.26,
+        "MAPE(%)": 22.37,
+        "Within10%(%)": 10.8,
+        "Within20%(%)": 41.42,
+        "n_samples": 63640
+      },
+      "train": {
+        "MAE": 3642.97,
+        "RMSE": 5236.94,
+        "R2": 0.9062,
+        "MedAE": 2642.17,
+        "MAPE(%)": 10.71,
+        "Within10%(%)": 61.35,
+        "Within20%(%)": 89.84,
+        "n_samples": 254560
+      },
+      "fit_seconds": 3.1,
+      "wall_seconds": 5.62,
+      "top_features": [
+        {
+          "feature": "community_avg_price",
+          "value": 10793.84
+        },
+        {
+          "feature": "building_age",
+          "value": 4878.39
+        },
+        {
+          "feature": "build_year",
+          "value": 3331.97
+        },
+        {
+          "feature": "area",
+          "value": 381.78
+        },
+        {
+          "feature": "ladder_ratio",
+          "value": 94.75
+        },
+        {
+          "feature": "followers",
+          "value": 88.53
+        },
+        {
+          "feature": "floor_number",
+          "value": 44.47
+        },
+        {
+          "feature": "days_on_market",
+          "value": 40.76
+        }
+      ]
+    },
+    {
+      "label": "随机森林 · 去时间",
+      "algo_id": "rf",
+      "algo_name": "随机森林",
+      "params": {
+        "n_estimators": 60,
+        "max_depth": 16,
+        "min_samples_leaf": 5,
+        "max_features": "sqrt",
+        "n_jobs": -1
+      },
+      "feature_profile": "no_time",
+      "target_mode": "absolute",
+      "n_features": 23,
+      "test": {
+        "MAE": 17318.31,
+        "RMSE": 20383.76,
+        "R2": 0.2849,
+        "MedAE": 15266.11,
+        "MAPE(%)": 26.08,
+        "Within10%(%)": 6.96,
+        "Within20%(%)": 29.64,
+        "n_samples": 63640
+      },
+      "train": {
+        "MAE": 4454.51,
+        "RMSE": 6392.98,
+        "R2": 0.8602,
+        "MedAE": 3199.33,
+        "MAPE(%)": 13.04,
+        "Within10%(%)": 52.28,
+        "Within20%(%)": 81.96,
+        "n_samples": 254560
+      },
+      "fit_seconds": 0.8,
+      "wall_seconds": 9.39,
+      "top_features": [
+        {
+          "feature": "community_avg_price",
+          "value": 5962.43
+        },
+        {
+          "feature": "lat",
+          "value": 926.18
+        },
+        {
+          "feature": "lng",
+          "value": 737.65
+        },
+        {
+          "feature": "building_age",
+          "value": 735.17
+        },
+        {
+          "feature": "build_year",
+          "value": 366.39
+        },
+        {
+          "feature": "area",
+          "value": 110.94
+        },
+        {
+          "feature": "elevator",
+          "value": 92.83
+        },
+        {
+          "feature": "ladder_ratio",
+          "value": 69.88
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "best_label": "HGB · 调参 + 去时间",
+    "best_algo": "hgb",
+    "best_params": {
+      "learning_rate": 0.05,
+      "max_iter": 600,
+      "max_depth": 10,
+      "min_samples_leaf": 20,
+      "l2_regularization": 0.0,
+      "max_bins": 255
+    },
+    "best_feature_profile": "no_time",
+    "best_target_mode": "absolute",
+    "best_RMSE": 16735.76,
+    "best_R2": 0.518,
+    "best_MAPE": 22.37,
+    "baseline_linear_ols_RMSE": 20081.5,
+    "improvement_vs_baseline(%)": 16.66
+  },
+  "created_at": "2026-10-11 23:25:02"
+}

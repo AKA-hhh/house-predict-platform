@@ -1,0 +1,1028 @@
+{
+  "version_id": "ds-20261011-232641-3e9e",
+  "created_at": "2026-10-11 23:26:41",
+  "source_id": "lianjia_bj_raw",
+  "source_name": "链家·北京二手房成交（原始）",
+  "source_type": "local_csv",
+  "source_uri": "D:\\project\\house_predict\\data\\raw\\new.csv",
+  "source_license": "CC0-1.0 (Public Domain)",
+  "source_attribution": "Lianjia.com 公开成交数据；整理版见 GitHub: Logical-Dhruv/housing-price-in-beijing (new.csv)；同源清洗版见 Kaggle: dhruvconnects/beijing-housing-price-cleaned",
+  "params": {
+    "chunk_size": 200000,
+    "missing_strategy": "mean",
+    "missing_per_column": {},
+    "drop_threshold": 0.6,
+    "outlier_strategy": "iqr",
+    "iqr_k": 1.5,
+    "zscore_threshold": 3.0,
+    "outlier_action": "winsorize",
+    "split_protocol": "time",
+    "test_size": 0.2,
+    "valid_size": 0.0,
+    "seed": 42,
+    "store_sqlite": true,
+    "store_mode": "replace",
+    "save_parquet": true
+  },
+  "stages": [
+    {
+      "stage": "ingest",
+      "rows_in": 318851,
+      "rows_out": 318851,
+      "dropped": 0,
+      "params": {
+        "chunk_size": 200000
+      },
+      "seconds": 2.54,
+      "notes": "编码=gb18030 分块=2",
+      "at": "2026-10-11 23:26:44"
+    },
+    {
+      "stage": "clean",
+      "rows_in": 318851,
+      "rows_out": 318200,
+      "dropped": 651,
+      "params": {
+        "missing_strategy": "mean",
+        "missing_per_column": {},
+        "drop_threshold": 0.6,
+        "outlier_strategy": "iqr",
+        "outlier_action": "winsorize",
+        "iqr_k": 1.5,
+        "zscore_threshold": 3.0
+      },
+      "seconds": 0.579,
+      "notes": "缺失策略=mean 异常策略=iqr",
+      "at": "2026-10-11 23:26:44"
+    },
+    {
+      "stage": "features",
+      "rows_in": 318200,
+      "rows_out": 318200,
+      "dropped": 0,
+      "params": {
+        "n_features": 26
+      },
+      "seconds": 1.416,
+      "notes": "防泄漏校验通过",
+      "at": "2026-10-11 23:26:46"
+    },
+    {
+      "stage": "split",
+      "rows_in": 318200,
+      "rows_out": 318200,
+      "dropped": 0,
+      "params": {
+        "protocol": "time",
+        "test_size": 0.2,
+        "valid_size": 0.0
+      },
+      "seconds": 0.102,
+      "notes": "train=254560 test=63640",
+      "at": "2026-10-11 23:26:46"
+    },
+    {
+      "stage": "store",
+      "rows_in": 318200,
+      "rows_out": 318200,
+      "dropped": 0,
+      "params": {
+        "parquet": true,
+        "sqlite": true,
+        "mode": "replace"
+      },
+      "seconds": 4.989,
+      "notes": "sqlite_rows=318200",
+      "at": "2026-10-11 23:26:51"
+    },
+    {
+      "stage": "aggregate",
+      "rows_in": 318200,
+      "rows_out": 318200,
+      "dropped": 0,
+      "params": {
+        "tables": 11
+      },
+      "seconds": 1.021,
+      "notes": "预聚合指标已落盘",
+      "at": "2026-10-11 23:26:52"
+    }
+  ],
+  "status": "success",
+  "active": false,
+  "ingest_report": {
+    "source_id": "lianjia_bj_raw",
+    "source_type": "local_csv",
+    "file_path": "D:\\project\\house_predict\\data\\raw\\new.csv",
+    "file_size_mb": 55.72,
+    "encoding": "gb18030",
+    "chunk_size": 200000,
+    "chunks": 2,
+    "rows": 318851,
+    "raw_line_rows": 318851,
+    "columns": 26,
+    "column_names": [
+      "url",
+      "house_id",
+      "lng",
+      "lat",
+      "community_id",
+      "trade_time",
+      "days_on_market",
+      "followers",
+      "total_price",
+      "unit_price",
+      "area",
+      "living_room",
+      "drawing_room",
+      "kitchen",
+      "bath_room",
+      "floor_raw",
+      "building_type",
+      "build_year",
+      "renovation",
+      "building_structure",
+      "ladder_ratio",
+      "elevator",
+      "five_years",
+      "subway",
+      "district_code",
+      "community_avg_price"
+    ],
+    "seconds": 2.272,
+    "source_attribution": "Lianjia.com 公开成交数据；整理版见 GitHub: Logical-Dhruv/housing-price-in-beijing (new.csv)；同源清洗版见 Kaggle: dhruvconnects/beijing-housing-price-cleaned",
+    "source_license": "CC0-1.0 (Public Domain)"
+  },
+  "column_map": {
+    "url": "url",
+    "id": "house_id",
+    "Lng": "lng",
+    "Lat": "lat",
+    "Cid": "community_id",
+    "tradeTime": "trade_time",
+    "DOM": "days_on_market",
+    "followers": "followers",
+    "totalPrice": "total_price",
+    "price": "unit_price",
+    "square": "area",
+    "livingRoom": "living_room",
+    "drawingRoom": "drawing_room",
+    "kitchen": "kitchen",
+    "bathRoom": "bath_room",
+    "floor": "floor_raw",
+    "buildingType": "building_type",
+    "constructionTime": "build_year",
+    "renovationCondition": "renovation",
+    "buildingStructure": "building_structure",
+    "ladderRatio": "ladder_ratio",
+    "elevator": "elevator",
+    "fiveYearsProperty": "five_years",
+    "subway": "subway",
+    "district": "district_code",
+    "communityAverage": "community_avg_price"
+  },
+  "raw_rows": 318851,
+  "raw_checksum": "00c40f385305d087ba8f42b273894a3562406efc38cb899b68700db346d6143d",
+  "raw_file_size_mb": 55.72,
+  "data_profile_raw": {
+    "rows": 318851,
+    "columns": 26,
+    "profile": [
+      {
+        "column": "days_on_market",
+        "dtype": "float64",
+        "non_null": 160874,
+        "missing": 157977,
+        "missing_rate": 0.4955,
+        "n_unique": 551,
+        "sample": "1464.0 | 903.0 | 1271.0"
+      },
+      {
+        "column": "build_year",
+        "dtype": "float64",
+        "non_null": 299568,
+        "missing": 19283,
+        "missing_rate": 0.0605,
+        "n_unique": 73,
+        "sample": "2005.0 | 2004.0 | 2005.0"
+      },
+      {
+        "column": "building_type",
+        "dtype": "str",
+        "non_null": 316830,
+        "missing": 2021,
+        "missing_rate": 0.0063,
+        "n_unique": 12,
+        "sample": "1 | 1 | 4"
+      },
+      {
+        "column": "community_avg_price",
+        "dtype": "float64",
+        "non_null": 318388,
+        "missing": 463,
+        "missing_rate": 0.0015,
+        "n_unique": 4072,
+        "sample": "56021.0 | 71539.0 | 48160.0"
+      },
+      {
+        "column": "living_room",
+        "dtype": "float64",
+        "non_null": 318819,
+        "missing": 32,
+        "missing_rate": 0.0001,
+        "n_unique": 10,
+        "sample": "2.0 | 2.0 | 3.0"
+      },
+      {
+        "column": "drawing_room",
+        "dtype": "float64",
+        "non_null": 318819,
+        "missing": 32,
+        "missing_rate": 0.0001,
+        "n_unique": 6,
+        "sample": "1.0 | 2.0 | 2.0"
+      },
+      {
+        "column": "elevator",
+        "dtype": "float64",
+        "non_null": 318819,
+        "missing": 32,
+        "missing_rate": 0.0001,
+        "n_unique": 2,
+        "sample": "1.0 | 1.0 | 1.0"
+      },
+      {
+        "column": "five_years",
+        "dtype": "float64",
+        "non_null": 318819,
+        "missing": 32,
+        "missing_rate": 0.0001,
+        "n_unique": 2,
+        "sample": "0.0 | 1.0 | 0.0"
+      },
+      {
+        "column": "subway",
+        "dtype": "float64",
+        "non_null": 318819,
+        "missing": 32,
+        "missing_rate": 0.0001,
+        "n_unique": 2,
+        "sample": "1.0 | 0.0 | 0.0"
+      },
+      {
+        "column": "url",
+        "dtype": "str",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 318851,
+        "sample": "https://bj.lianjia.com/chengjiao/101084782030.html | https://bj.lianjia.com/chen"
+      },
+      {
+        "column": "house_id",
+        "dtype": "str",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 318851,
+        "sample": "101084782030 | 101086012217 | 101086041636"
+      },
+      {
+        "column": "lng",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 3995,
+        "sample": "116.475489 | 116.453917 | 116.561978"
+      },
+      {
+        "column": "lat",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 3993,
+        "sample": "40.01952 | 39.881534 | 39.877145"
+      },
+      {
+        "column": "community_id",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 4035,
+        "sample": "1111027376244.0 | 1111027381879.0 | 1111040862969.0"
+      },
+      {
+        "column": "trade_time",
+        "dtype": "str",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 2560,
+        "sample": "2016-08-09 | 2016-07-28 | 2016-12-11"
+      },
+      {
+        "column": "followers",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 547,
+        "sample": "106.0 | 126.0 | 48.0"
+      },
+      {
+        "column": "total_price",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 5780,
+        "sample": "415.0 | 575.0 | 1030.0"
+      },
+      {
+        "column": "unit_price",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 80042,
+        "sample": "31680.0 | 43436.0 | 52021.0"
+      },
+      {
+        "column": "area",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 18298,
+        "sample": "131.0 | 132.38 | 198.0"
+      },
+      {
+        "column": "kitchen",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 5,
+        "sample": "1.0 | 1.0 | 1.0"
+      },
+      {
+        "column": "bath_room",
+        "dtype": "float64",
+        "non_null": 318849,
+        "missing": 2,
+        "missing_rate": 0.0,
+        "n_unique": 17,
+        "sample": "1.0 | 2.0 | 3.0"
+      },
+      {
+        "column": "floor_raw",
+        "dtype": "str",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 203,
+        "sample": "高 26 | 高 22 | 中 4"
+      },
+      {
+        "column": "renovation",
+        "dtype": "str",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 5,
+        "sample": "3 | 4 | 3"
+      },
+      {
+        "column": "building_structure",
+        "dtype": "str",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 7,
+        "sample": "6 | 6 | 6"
+      },
+      {
+        "column": "ladder_ratio",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 183,
+        "sample": "0.217 | 0.667 | 0.5"
+      },
+      {
+        "column": "district_code",
+        "dtype": "float64",
+        "non_null": 318851,
+        "missing": 0,
+        "missing_rate": 0.0,
+        "n_unique": 13,
+        "sample": "7.0 | 7.0 | 7.0"
+      }
+    ]
+  },
+  "clean_report": {
+    "params": {
+      "missing_strategy": "mean",
+      "missing_per_column": {},
+      "drop_threshold": 0.6,
+      "outlier_strategy": "iqr",
+      "outlier_action": "winsorize",
+      "iqr_k": 1.5,
+      "zscore_threshold": 3.0
+    },
+    "rows_in": 318851,
+    "filter": {
+      "drop_missing_required": 0,
+      "drop_exact_duplicate": 0,
+      "drop_duplicate_house_id": 0,
+      "drop_nonpositive_target": 0,
+      "drop_target_out_of_business_range": 651,
+      "target_business_range": [
+        3000.0,
+        200000.0
+      ],
+      "rows_after_filter": 318200,
+      "rows_dropped_total": 651
+    },
+    "normalize": {
+      "invalid_geo_nulled": 0,
+      "unparsable_trade_time": 0,
+      "label_columns_created": [
+        "district_name",
+        "building_type_name",
+        "building_structure_name",
+        "renovation_name",
+        "elevator_name",
+        "five_years_name",
+        "subway_name"
+      ]
+    },
+    "missing": {
+      "columns_dropped_high_missing": [],
+      "rows_dropped_missing": 0,
+      "fill_detail": {
+        "days_on_market": {
+          "strategy": "mean",
+          "filled": 157622,
+          "missing_rate": 0.4954
+        },
+        "living_room": {
+          "strategy": "mean",
+          "filled": 32,
+          "missing_rate": 0.0001
+        },
+        "drawing_room": {
+          "strategy": "mean",
+          "filled": 32,
+          "missing_rate": 0.0001
+        },
+        "bath_room": {
+          "strategy": "mean",
+          "filled": 2,
+          "missing_rate": 0.0
+        },
+        "building_type": {
+          "strategy": "mode",
+          "filled": 2020,
+          "missing_rate": 0.0063
+        },
+        "build_year": {
+          "strategy": "mean",
+          "filled": 19222,
+          "missing_rate": 0.0604
+        },
+        "elevator": {
+          "strategy": "mean",
+          "filled": 32,
+          "missing_rate": 0.0001
+        },
+        "five_years": {
+          "strategy": "mean",
+          "filled": 32,
+          "missing_rate": 0.0001
+        },
+        "subway": {
+          "strategy": "mean",
+          "filled": 32,
+          "missing_rate": 0.0001
+        },
+        "community_avg_price": {
+          "strategy": "mean",
+          "filled": 462,
+          "missing_rate": 0.0015
+        }
+      },
+      "filled_cells": 179488,
+      "rows_after_missing": 318200
+    },
+    "outlier": {
+      "strategy": "iqr",
+      "action": "winsorize",
+      "iqr_k": 1.5,
+      "zscore_threshold": null,
+      "checked_columns": [
+        "total_price",
+        "area",
+        "community_avg_price",
+        "build_year",
+        "ladder_ratio"
+      ],
+      "outliers_detected": 46864,
+      "rows_dropped": 0,
+      "affected_columns": {
+        "total_price": {
+          "detected": 15707,
+          "rate": 0.04936,
+          "lower_bound": -126.5,
+          "upper_bound": 757.5,
+          "action": "winsorize_to[-126.5, 757.5]"
+        },
+        "area": {
+          "detected": 12169,
+          "rate": 0.03824,
+          "lower_bound": -3.1838,
+          "upper_bound": 159.7063,
+          "action": "winsorize_to[-3.18, 159.71]"
+        },
+        "community_avg_price": {
+          "detected": 8452,
+          "rate": 0.02656,
+          "lower_bound": 1967.0,
+          "upper_bound": 120327.0,
+          "action": "winsorize_to[1967.0, 120327.0]"
+        },
+        "build_year": {
+          "detected": 3288,
+          "rate": 0.01033,
+          "lower_bound": 1977.5,
+          "upper_bound": 2021.5,
+          "action": "winsorize_to[1977.5, 2021.5]"
+        },
+        "ladder_ratio": {
+          "detected": 7248,
+          "rate": 0.02278,
+          "lower_bound": -0.125,
+          "upper_bound": 0.875,
+          "action": "winsorize_to[-0.12, 0.88]"
+        }
+      },
+      "target_policy": "目标变量 unit_price 不做统计截断（避免改写标签），仅按业务区间 (3000.0, 200000.0) 硬过滤；越界记录已在 filter_records 中剔除 651 条。"
+    },
+    "rows_out": 318200,
+    "rows_dropped_total": 651,
+    "seconds": 0.579
+  },
+  "feature_report": {
+    "floor_parsed": 253539,
+    "floor_unknown": 64661,
+    "floor_total_missing": 64661,
+    "room_features": [
+      "room_total",
+      "area_per_room",
+      "bedroom_ratio"
+    ],
+    "time_features": [
+      "trade_year",
+      "trade_month",
+      "trade_quarter",
+      "trade_dow",
+      "building_age"
+    ],
+    "geo_features": [
+      "dist_to_center",
+      "is_core_district"
+    ],
+    "community_features": [
+      "community_avg_price",
+      "community_vs_district"
+    ],
+    "encoded_categories": [
+      "floor_category_code",
+      "building_type_code",
+      "building_structure_code",
+      "renovation_code"
+    ],
+    "model_features": [
+      "area",
+      "living_room",
+      "drawing_room",
+      "kitchen",
+      "bath_room",
+      "room_total",
+      "floor_category_code",
+      "floor_number",
+      "floor_ratio",
+      "build_year",
+      "building_age",
+      "building_type_code",
+      "building_structure_code",
+      "renovation_code",
+      "ladder_ratio",
+      "elevator",
+      "five_years",
+      "subway",
+      "days_on_market",
+      "followers",
+      "community_avg_price",
+      "lng",
+      "lat",
+      "trade_year",
+      "trade_month",
+      "trade_quarter"
+    ],
+    "n_features": 26,
+    "forbidden_check": "passed",
+    "rows_in": 318200,
+    "rows_out": 318200,
+    "seconds": 1.416
+  },
+  "split_meta": {
+    "protocol": "time",
+    "time_col": "trade_time",
+    "test_size": 0.2,
+    "valid_size": 0.0,
+    "train_rows": 254560,
+    "valid_rows": 0,
+    "test_rows": 63640,
+    "train_period": [
+      "2002-06-01 00:00:00",
+      "2016-09-12 00:00:00"
+    ],
+    "test_period": [
+      "2016-09-12 00:00:00",
+      "2018-01-28 00:00:00"
+    ],
+    "seconds": 0.102,
+    "target": "unit_price"
+  },
+  "parquet_path": "D:\\project\\house_predict\\data\\processed\\ds-20261011-232641-3e9e.parquet",
+  "sqlite": {
+    "table": "house_detail",
+    "mode": "replace",
+    "written_rows": 318200,
+    "table_rows": 318200,
+    "seconds": 3.675
+  },
+  "split_dir": "D:\\project\\house_predict\\data\\models\\ds-20261011-232641-3e9e",
+  "aggregate_paths": {
+    "json": "D:\\project\\house_predict\\data\\reports\\aggregates_ds-20261011-232641-3e9e.json",
+    "latest": "D:\\project\\house_predict\\data\\reports\\aggregates_latest.json"
+  },
+  "final_rows": 318200,
+  "final_columns": 54,
+  "fingerprint": {
+    "rows": 318200,
+    "cols": 54,
+    "columns": {
+      "url": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "house_id": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "lng": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 116.4184,
+        "std": 0.1121,
+        "min": 116.0725,
+        "q25": 116.345,
+        "median": 116.4168,
+        "q75": 116.4776,
+        "max": 116.7324
+      },
+      "lat": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 39.9494,
+        "std": 0.0919,
+        "min": 39.627,
+        "q25": 39.8932,
+        "median": 39.9345,
+        "q75": 40.0025,
+        "max": 40.2528
+      },
+      "community_id": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 1129150336416.4846,
+        "std": 2365863114550.5054,
+        "min": 1111027373683.0,
+        "q25": 1111027376254.0,
+        "median": 1111027378407.0,
+        "q75": 1111027380579.0,
+        "max": 1114619720585020.0
+      },
+      "trade_time": {
+        "dtype": "datetime64[us]",
+        "null_rate": 0.0
+      },
+      "days_on_market": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 28.8726,
+        "std": 35.7108,
+        "min": 1.0,
+        "q25": 6.0,
+        "median": 28.8726,
+        "q75": 28.8726,
+        "max": 1677.0
+      },
+      "followers": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 16.7653,
+        "std": 34.2359,
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 5.0,
+        "q75": 18.0,
+        "max": 1143.0
+      },
+      "total_price": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 335.5372,
+        "std": 173.4388,
+        "min": 4.4,
+        "q25": 205.0,
+        "median": 295.0,
+        "q75": 426.0,
+        "max": 757.5
+      },
+      "unit_price": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 43617.8149,
+        "std": 21644.9776,
+        "min": 3006.0,
+        "q25": 28112.0,
+        "median": 38779.5,
+        "q75": 53858.0,
+        "max": 156250.0
+      },
+      "area": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 81.6939,
+        "std": 31.7133,
+        "min": 6.9,
+        "q25": 57.9,
+        "median": 74.21,
+        "q75": 98.6225,
+        "max": 159.7063
+      },
+      "living_room": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 2.0099,
+        "std": 0.7767,
+        "min": 0.0,
+        "q25": 1.0,
+        "median": 2.0,
+        "q75": 2.0,
+        "max": 9.0
+      },
+      "drawing_room": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 1.1716,
+        "std": 0.5222,
+        "min": 0.0,
+        "q25": 1.0,
+        "median": 1.0,
+        "q75": 1.0,
+        "max": 5.0
+      },
+      "kitchen": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 0.9946,
+        "std": 0.1094,
+        "min": 0.0,
+        "q25": 1.0,
+        "median": 1.0,
+        "q75": 1.0,
+        "max": 4.0
+      },
+      "bath_room": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 1.3764,
+        "std": 19.4387,
+        "min": 0.0,
+        "q25": 1.0,
+        "median": 1.0,
+        "q75": 1.0,
+        "max": 2011.0
+      },
+      "floor_raw": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "building_type": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "build_year": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 1999.2819,
+        "std": 8.2191,
+        "min": 1977.5,
+        "q25": 1994.0,
+        "median": 2000.0,
+        "q75": 2005.0,
+        "max": 2016.0
+      },
+      "renovation": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "building_structure": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "ladder_ratio": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 0.3755,
+        "std": 0.1538,
+        "min": 0.0,
+        "q25": 0.25,
+        "median": 0.333,
+        "q75": 0.5,
+        "max": 0.875
+      },
+      "elevator": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 0.5772,
+        "std": 0.494,
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 1.0,
+        "q75": 1.0,
+        "max": 1.0
+      },
+      "five_years": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 0.6462,
+        "std": 0.4781,
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 1.0,
+        "q75": 1.0,
+        "max": 1.0
+      },
+      "subway": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 0.6014,
+        "std": 0.4896,
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 1.0,
+        "q75": 1.0,
+        "max": 1.0
+      },
+      "district_code": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 6.7639,
+        "std": 2.8139,
+        "min": 1.0,
+        "q25": 6.0,
+        "median": 7.0,
+        "q75": 8.0,
+        "max": 13.0
+      },
+      "community_avg_price": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 63427.7204,
+        "std": 21455.4925,
+        "min": 10847.0,
+        "q25": 46352.0,
+        "median": 59023.0,
+        "q75": 75942.0,
+        "max": 120327.0
+      },
+      "district_name": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "building_type_name": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "building_structure_name": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "renovation_name": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "elevator_name": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "subway_name": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "five_years_name": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "floor_category": {
+        "dtype": "str",
+        "null_rate": 0.0
+      },
+      "floor_total": {
+        "dtype": "float64",
+        "null_rate": 0.203209,
+        "mean": 14.4429,
+        "std": 7.8687,
+        "min": 2.0,
+        "q25": 6.0,
+        "median": 14.0,
+        "q75": 21.0,
+        "max": 63.0
+      },
+      "floor_number": {
+        "dtype": "float64",
+        "null_rate": 0.203209,
+        "mean": 7.2786,
+        "std": 5.7331,
+        "min": 0.0,
+        "q25": 3.0,
+        "median": 5.0,
+        "q75": 10.0,
+        "max": 35.0
+      },
+      "floor_ratio": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 0.5062,
+        "std": 0.2162,
+        "min": 0.1667,
+        "q25": 0.5,
+        "median": 0.5,
+        "q75": 0.5,
+        "max": 0.8333
+      },
+      "room_total": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 5.5525,
+        "std": 19.5154,
+        "min": 1.0,
+        "q25": 4.0,
+        "median": 5.0,
+        "q75": 6.0,
+        "max": 2018.1815
+      },
+      "area_per_room": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 15.1037,
+        "std": 4.2946,
+        "min": 0.01,
+        "q25": 12.34,
+        "median": 14.92,
+        "q75": 17.36,
+        "max": 159.71
+      },
+      "bedroom_ratio": {
+        "dtype": "float64",
+        "null_rate": 0.0,
+        "mean": 0.3678,
+        "std": 0.0818,
+        "min": 0.0,
+        "q25": 0.3333,
+        "median": 0.4,
+        "q75": 0.4,
+        "max": 1.0
+      }
+    }
+  },
+  "checksum": "30441c34ad66ae3a275141b525bb0ef06e514efd6a9cf2ab04a115ca8eef71f8",
+  "target_stats": {
+    "column": "unit_price",
+    "mean": 43617.81,
+    "median": 38779.5,
+    "std": 21644.98,
+    "min": 3006.0,
+    "max": 156250.0
+  },
+  "seconds_total": 10.85
+}

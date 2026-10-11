@@ -1,0 +1,423 @@
+{
+  "experiment": "E3_特征消融",
+  "version_id": "ds-20261011-232410-ef5c",
+  "algo_ids": [
+    "linear_ols",
+    "hgb"
+  ],
+  "results": [
+    {
+      "variant": "全部特征",
+      "n_features": 26,
+      "features": [
+        "area",
+        "living_room",
+        "drawing_room",
+        "kitchen",
+        "bath_room",
+        "room_total",
+        "floor_category_code",
+        "floor_number",
+        "floor_ratio",
+        "build_year",
+        "building_age",
+        "building_type_code",
+        "building_structure_code",
+        "renovation_code",
+        "ladder_ratio",
+        "elevator",
+        "five_years",
+        "subway",
+        "days_on_market",
+        "followers",
+        "community_avg_price",
+        "lng",
+        "lat",
+        "trade_year",
+        "trade_month",
+        "trade_quarter"
+      ],
+      "models": {
+        "linear_ols": {
+          "MAE": 16142.59,
+          "RMSE": 20081.5,
+          "R2": 0.306,
+          "MedAE": 13775.69,
+          "MAPE(%)": 22.79,
+          "Within10%(%)": 14.45,
+          "Within20%(%)": 39.75,
+          "n_samples": 63640
+        },
+        "hgb": {
+          "MAE": 15853.78,
+          "RMSE": 19597.01,
+          "R2": 0.339,
+          "MedAE": 13401.32,
+          "MAPE(%)": 24.13,
+          "Within10%(%)": 20.61,
+          "Within20%(%)": 46.62,
+          "n_samples": 63640
+        }
+      }
+    },
+    {
+      "variant": "去掉成交时间分量",
+      "n_features": 23,
+      "features": [
+        "area",
+        "living_room",
+        "drawing_room",
+        "kitchen",
+        "bath_room",
+        "room_total",
+        "floor_category_code",
+        "floor_number",
+        "floor_ratio",
+        "build_year",
+        "building_age",
+        "building_type_code",
+        "building_structure_code",
+        "renovation_code",
+        "ladder_ratio",
+        "elevator",
+        "five_years",
+        "subway",
+        "days_on_market",
+        "followers",
+        "community_avg_price",
+        "lng",
+        "lat"
+      ],
+      "models": {
+        "linear_ols": {
+          "MAE": 16519.69,
+          "RMSE": 20341.2,
+          "R2": 0.2879,
+          "MedAE": 14221.93,
+          "MAPE(%)": 23.42,
+          "Within10%(%)": 12.62,
+          "Within20%(%)": 36.79,
+          "n_samples": 63640
+        },
+        "hgb": {
+          "MAE": 14543.05,
+          "RMSE": 16917.11,
+          "R2": 0.5075,
+          "MedAE": 13205.78,
+          "MAPE(%)": 22.46,
+          "Within10%(%)": 11.05,
+          "Within20%(%)": 41.05,
+          "n_samples": 63640
+        }
+      }
+    },
+    {
+      "variant": "去掉小区均价",
+      "n_features": 25,
+      "features": [
+        "area",
+        "living_room",
+        "drawing_room",
+        "kitchen",
+        "bath_room",
+        "room_total",
+        "floor_category_code",
+        "floor_number",
+        "floor_ratio",
+        "build_year",
+        "building_age",
+        "building_type_code",
+        "building_structure_code",
+        "renovation_code",
+        "ladder_ratio",
+        "elevator",
+        "five_years",
+        "subway",
+        "days_on_market",
+        "followers",
+        "lng",
+        "lat",
+        "trade_year",
+        "trade_month",
+        "trade_quarter"
+      ],
+      "models": {
+        "linear_ols": {
+          "MAE": 19035.2,
+          "RMSE": 26129.89,
+          "R2": -0.1751,
+          "MedAE": 13345.73,
+          "MAPE(%)": 26.5,
+          "Within10%(%)": 21.43,
+          "Within20%(%)": 42.54,
+          "n_samples": 63640
+        },
+        "hgb": {
+          "MAE": 16202.02,
+          "RMSE": 20397.82,
+          "R2": 0.2839,
+          "MedAE": 13852.76,
+          "MAPE(%)": 24.19,
+          "Within10%(%)": 21.36,
+          "Within20%(%)": 45.14,
+          "n_samples": 63640
+        }
+      }
+    },
+    {
+      "variant": "去掉地理特征",
+      "n_features": 24,
+      "features": [
+        "area",
+        "living_room",
+        "drawing_room",
+        "kitchen",
+        "bath_room",
+        "room_total",
+        "floor_category_code",
+        "floor_number",
+        "floor_ratio",
+        "build_year",
+        "building_age",
+        "building_type_code",
+        "building_structure_code",
+        "renovation_code",
+        "ladder_ratio",
+        "elevator",
+        "five_years",
+        "subway",
+        "days_on_market",
+        "followers",
+        "community_avg_price",
+        "trade_year",
+        "trade_month",
+        "trade_quarter"
+      ],
+      "models": {
+        "linear_ols": {
+          "MAE": 16132.55,
+          "RMSE": 20064.39,
+          "R2": 0.3071,
+          "MedAE": 13751.61,
+          "MAPE(%)": 22.78,
+          "Within10%(%)": 14.34,
+          "Within20%(%)": 39.77,
+          "n_samples": 63640
+        },
+        "hgb": {
+          "MAE": 15878.98,
+          "RMSE": 19679.62,
+          "R2": 0.3335,
+          "MedAE": 13403.87,
+          "MAPE(%)": 24.15,
+          "Within10%(%)": 21.01,
+          "Within20%(%)": 46.49,
+          "n_samples": 63640
+        }
+      }
+    },
+    {
+      "variant": "去掉楼层信息",
+      "n_features": 23,
+      "features": [
+        "area",
+        "living_room",
+        "drawing_room",
+        "kitchen",
+        "bath_room",
+        "room_total",
+        "build_year",
+        "building_age",
+        "building_type_code",
+        "building_structure_code",
+        "renovation_code",
+        "ladder_ratio",
+        "elevator",
+        "five_years",
+        "subway",
+        "days_on_market",
+        "followers",
+        "community_avg_price",
+        "lng",
+        "lat",
+        "trade_year",
+        "trade_month",
+        "trade_quarter"
+      ],
+      "models": {
+        "linear_ols": {
+          "MAE": 16164.27,
+          "RMSE": 20100.8,
+          "R2": 0.3046,
+          "MedAE": 13795.26,
+          "MAPE(%)": 22.83,
+          "Within10%(%)": 14.37,
+          "Within20%(%)": 39.62,
+          "n_samples": 63640
+        },
+        "hgb": {
+          "MAE": 15945.21,
+          "RMSE": 19673.41,
+          "R2": 0.3339,
+          "MedAE": 13554.06,
+          "MAPE(%)": 24.27,
+          "Within10%(%)": 20.15,
+          "Within20%(%)": 46.22,
+          "n_samples": 63640
+        }
+      }
+    },
+    {
+      "variant": "去掉交易过程量",
+      "n_features": 24,
+      "features": [
+        "area",
+        "living_room",
+        "drawing_room",
+        "kitchen",
+        "bath_room",
+        "room_total",
+        "floor_category_code",
+        "floor_number",
+        "floor_ratio",
+        "build_year",
+        "building_age",
+        "building_type_code",
+        "building_structure_code",
+        "renovation_code",
+        "ladder_ratio",
+        "elevator",
+        "five_years",
+        "subway",
+        "community_avg_price",
+        "lng",
+        "lat",
+        "trade_year",
+        "trade_month",
+        "trade_quarter"
+      ],
+      "models": {
+        "linear_ols": {
+          "MAE": 16813.69,
+          "RMSE": 20639.38,
+          "R2": 0.2669,
+          "MedAE": 14557.07,
+          "MAPE(%)": 23.69,
+          "Within10%(%)": 11.84,
+          "Within20%(%)": 35.31,
+          "n_samples": 63640
+        },
+        "hgb": {
+          "MAE": 15655.09,
+          "RMSE": 19480.9,
+          "R2": 0.3469,
+          "MedAE": 13096.12,
+          "MAPE(%)": 23.83,
+          "Within10%(%)": 22.2,
+          "Within20%(%)": 48.1,
+          "n_samples": 63640
+        }
+      }
+    },
+    {
+      "variant": "仅房屋面积与户型",
+      "n_features": 6,
+      "features": [
+        "area",
+        "living_room",
+        "drawing_room",
+        "kitchen",
+        "bath_room",
+        "room_total"
+      ],
+      "models": {
+        "linear_ols": {
+          "MAE": 27866.56,
+          "RMSE": 35660.57,
+          "R2": -1.1886,
+          "MedAE": 22605.27,
+          "MAPE(%)": 37.09,
+          "Within10%(%)": 9.83,
+          "Within20%(%)": 22.33,
+          "n_samples": 63640
+        },
+        "hgb": {
+          "MAE": 27863.26,
+          "RMSE": 35150.41,
+          "R2": -1.1264,
+          "MedAE": 22958.92,
+          "MAPE(%)": 37.68,
+          "Within10%(%)": 8.49,
+          "Within20%(%)": 19.34,
+          "n_samples": 63640
+        }
+      }
+    }
+  ],
+  "summary": [
+    {
+      "variant": "全部特征",
+      "n_features": 26,
+      "hgb_R2": 0.339,
+      "hgb_delta_R2_vs_full": 0.0,
+      "ols_R2": 0.306,
+      "ols_delta_R2_vs_full": 0.0
+    },
+    {
+      "variant": "去掉成交时间分量",
+      "n_features": 23,
+      "hgb_R2": 0.5075,
+      "hgb_delta_R2_vs_full": 0.1685,
+      "ols_R2": 0.2879,
+      "ols_delta_R2_vs_full": -0.0181
+    },
+    {
+      "variant": "去掉小区均价",
+      "n_features": 25,
+      "hgb_R2": 0.2839,
+      "hgb_delta_R2_vs_full": -0.0551,
+      "ols_R2": -0.1751,
+      "ols_delta_R2_vs_full": -0.4811
+    },
+    {
+      "variant": "去掉地理特征",
+      "n_features": 24,
+      "hgb_R2": 0.3335,
+      "hgb_delta_R2_vs_full": -0.0055,
+      "ols_R2": 0.3071,
+      "ols_delta_R2_vs_full": 0.0011
+    },
+    {
+      "variant": "去掉楼层信息",
+      "n_features": 23,
+      "hgb_R2": 0.3339,
+      "hgb_delta_R2_vs_full": -0.0051,
+      "ols_R2": 0.3046,
+      "ols_delta_R2_vs_full": -0.0014
+    },
+    {
+      "variant": "去掉交易过程量",
+      "n_features": 24,
+      "hgb_R2": 0.3469,
+      "hgb_delta_R2_vs_full": 0.0079,
+      "ols_R2": 0.2669,
+      "ols_delta_R2_vs_full": -0.0391
+    },
+    {
+      "variant": "仅房屋面积与户型",
+      "n_features": 6,
+      "hgb_R2": -1.1264,
+      "hgb_delta_R2_vs_full": -1.4654,
+      "ols_R2": -1.1886,
+      "ols_delta_R2_vs_full": -1.4946
+    }
+  ],
+  "conclusion": {
+    "finding": "在时间切分下，去掉『成交时间分量』反而让梯度提升树的测试 R² 明显提升。",
+    "hgb_full_R2": 0.339,
+    "hgb_no_time_R2": 0.5075,
+    "reason": "树模型只能在训练集见过的取值范围内做分段常数预测，无法外推未见过的年份。加入交易年份会让模型把训练期的周期模式记死，在测试期（时间上更晚）失效；去掉时间分量后，模型转而依赖小区均价与房屋结构等更稳定的截面特征。",
+    "action": "在系统里提供「特征集档位」选项（full / no_time / no_community / compact），把该结论固化为可复用的配置。"
+  },
+  "created_at": "2026-10-11 23:25:26"
+}

@@ -1,0 +1,60 @@
+# ============================================================
+# .gitignore —— 二手房价格分析与预测系统
+#
+# 设计原则：**只提交源码、文档与轻量记录**；
+# 一切体积较大的数据文件、模型产物、运行产物都不入库——
+# 它们可由 `python tools/etl.py run` / `python run.py --init` 一键重新生成。
+# ============================================================
+
+# ---------- Python 虚拟环境 ----------
+.venv/
+venv/
+env/
+ENV/
+
+# ---------- Python 缓存与构建产物 ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---------- 数据文件（体积大 / 可通过流水线重新生成）----------
+# 原始数据集 58MB，用 `python tools/etl.py download --source lianjia_bj_raw` 重新拉取
+data/raw/
+# 清洗后的 Parquet 快照（约 15MB/版本）
+data/processed/
+# 划分数据集与模型文件（约 340MB）
+data/models/
+# 预聚合仪表盘快照（流水线末尾自动重建）
+data/reports/
+# SQLite 明细库（约 130MB）
+data/house.db
+data/house.db-shm
+data/house.db-wal
+
+# 说明：data/registry/ 下的数据版本记录（JSON，约 260KB）**保留入库**，
+#      它是"数据版本管理"这一交付项的直接证据。
+
+# ---------- 工具与编辑器 ----------
+.workbuddy/
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- 临时与日志 ----------
+*.log
+_*.png
+*.tmp
+~$*

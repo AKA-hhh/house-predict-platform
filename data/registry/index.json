@@ -1,0 +1,110 @@
+[
+  {
+    "version_id": "ds-20261011-232833-f477",
+    "created_at": "2026-10-11 23:28:33",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 318200,
+    "checksum": "c1536aac2ce23a46b38c7871de206822cd7b4331ad8bbe649661f8b4933dec99",
+    "active": true,
+    "ok": true
+  },
+  {
+    "version_id": "ds-20261011-232809-1887",
+    "created_at": "2026-10-11 23:28:09",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 318200,
+    "checksum": "b80a6042ee13f36b7fb947a930dc53adb31e65782669e69e69b5a59fc1c120af",
+    "active": false,
+    "ok": true
+  },
+  {
+    "version_id": "ds-20261011-232757-282b",
+    "created_at": "2026-10-11 23:27:57",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 318200,
+    "checksum": "7d2560e7a37bb5a72d5fb64ee676aecab0cd15af0d5711ddd12ad12661a8885f",
+    "active": false,
+    "ok": true
+  },
+  {
+    "version_id": "ds-20261011-232744-cc88",
+    "created_at": "2026-10-11 23:27:44",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 318200,
+    "checksum": "0f14217a7a30dd3b9593a936d2a0e812a641534db4dee85ef1dabe3b186b57c9",
+    "active": false,
+    "ok": true
+  },
+  {
+    "version_id": "ds-20261011-232731-f927",
+    "created_at": "2026-10-11 23:27:31",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 318200,
+    "checksum": "089962f8c879f35eef6556125b5b02064a20618989bbedc614270a357926f668",
+    "active": false,
+    "ok": true
+  },
+  {
+    "version_id": "ds-20261011-232705-978f",
+    "created_at": "2026-10-11 23:27:05",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 318200,
+    "checksum": "849b9571f837b67440cbf8401b11a7234a00dde2cbfcf531ab5f0dae4ac0512a",
+    "active": false,
+    "ok": true
+  },
+  {
+    "version_id": "ds-20261011-232656-9e46",
+    "created_at": "2026-10-11 23:26:56",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 152002,
+    "checksum": "af4d25fb5c4b491faa9ae2991b4bba213cebc9551db8f65536110475ce4c5da8",
+    "active": false,
+    "ok": true
+  },
+  {
+    "version_id": "ds-20261011-232641-3e9e",
+    "created_at": "2026-10-11 23:26:41",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 318200,
+    "checksum": "30441c34ad66ae3a275141b525bb0ef06e514efd6a9cf2ab04a115ca8eef71f8",
+    "active": false,
+    "ok": true
+  },
+  {
+    "version_id": "ds-20261011-230415-3b91",
+    "created_at": "2026-10-11 23:04:15",
+    "source_id": "lianjia_bj_raw",
+    "source_name": "链家·北京二手房成交（原始）",
+    "status": "success",
+    "raw_rows": 318851,
+    "final_rows": 318851,
+    "checksum": "03e9507e5eeec56e1891340bdcaff60cfed319c74f0d1fd0429f92b9be74c571",
+    "active": false,
+    "ok": true
+  }
+]

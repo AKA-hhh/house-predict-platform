@@ -1,0 +1,16 @@
+# 统一换行符：仓库内一律使用 LF，避免 Windows/Linux 协作时整个文件被标记为改动
+* text=auto eol=lf
+
+# 二进制文件不做换行转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.joblib binary
+*.parquet binary
+*.xlsx binary
+
+# 第三方压缩库：标记为二进制并让 GitHub 在语言统计中忽略
+backend/web/vendor/*.js linguist-vendored

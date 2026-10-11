@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>二手房价格分析与预测系统</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/vendor/echarts.min.js"></script>
+<script src="/static/vendor/marked.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <!-- ===================== 侧边栏 ===================== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-row">
+        <div class="brand-mark">房</div>
+        <div>
+          <div class="brand-title">二手房价格分析与预测</div>
+        </div>
+      </div>
+      <div class="brand-sub">链家北京成交数据 · 数据流水线 + 价格预测 + 房源推荐</div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-group">数据</div>
+      <div class="nav-item active" data-tab="overview"><span class="ico">◈</span>数据概览</div>
+      <div class="nav-item" data-tab="pipeline"><span class="ico">⇣</span>数据导入与流水线</div>
+      <div class="nav-item" data-tab="versions"><span class="ico">⌥</span>数据版本记录</div>
+      <div class="nav-item" data-tab="quality"><span class="ico">✓</span>清洗与质量报告</div>
+      <div class="nav-item" data-tab="listings"><span class="ico">☰</span>房源明细查询</div>
+
+      <div class="nav-group">算法</div>
+      <div class="nav-item" data-tab="algorithms"><span class="ico">⚙</span>算法与参数配置</div>
+      <div class="nav-item" data-tab="training"><span class="ico">◱</span>模型训练与对比</div>
+      <div class="nav-item" data-tab="predict"><span class="ico">¥</span>价格预测</div>
+      <div class="nav-item" data-tab="recommend"><span class="ico">★</span>房源推荐</div>
+
+      <div class="nav-group">成果</div>
+      <div class="nav-item" data-tab="experiments"><span class="ico">⌗</span>实验与运行记录</div>
+      <div class="nav-item" data-tab="docs"><span class="ico">▤</span>项目文档</div>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div><span class="dot ok" id="health-dot"></span><span id="health-text">连接中…</span></div>
+    </div>
+  </aside>
+
+  <!-- ===================== 主内容 ===================== -->
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="page-title" id="ptitle">数据概览</div>
+        <div class="page-desc" id="pdesc">数据集规模、价格分布与区域统计</div>
+      </div>
+      <div class="topbar-actions" id="topbar-actions"></div>
+    </header>
+    <div class="content" id="content"></div>
+  </main>
+</div>
+
+<div id="toasts"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{
+  "experiment": "E4_缺失值策略",
+  "variants": [
+    {
+      "label": "median (中位数填充)",
+      "params": {
+        "missing_strategy": "median"
+      },
+      "version_id": "ds-20261011-232623-edef",
+      "raw_rows": 318851,
+      "final_rows": 318200,
+      "seconds": 10.18,
+      "test": {
+        "MAE": 15853.78,
+        "RMSE": 19597.01,
+        "R2": 0.339,
+        "MedAE": 13401.32,
+        "MAPE(%)": 24.13,
+        "Within10%(%)": 20.61,
+        "Within20%(%)": 46.62,
+        "n_samples": 63640
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 43617.81,
+        "median": 38779.5,
+        "std": 21644.98,
+        "min": 3006.0,
+        "max": 156250.0
+      }
+    },
+    {
+      "label": "mean (均值填充)",
+      "params": {
+        "missing_strategy": "mean"
+      },
+      "version_id": "ds-20261011-232641-3e9e",
+      "raw_rows": 318851,
+      "final_rows": 318200,
+      "seconds": 10.85,
+      "test": {
+        "MAE": 16087.53,
+        "RMSE": 19866.58,
+        "R2": 0.3207,
+        "MedAE": 13575.54,
+        "MAPE(%)": 24.52,
+        "Within10%(%)": 20.14,
+        "Within20%(%)": 46.11,
+        "n_samples": 63640
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 43617.81,
+        "median": 38779.5,
+        "std": 21644.98,
+        "min": 3006.0,
+        "max": 156250.0
+      }
+    },
+    {
+      "label": "drop (删除含缺失行)",
+      "params": {
+        "missing_strategy": "drop"
+      },
+      "version_id": "ds-20261011-232656-9e46",
+      "raw_rows": 318851,
+      "final_rows": 152002,
+      "seconds": 6.79,
+      "test": {
+        "MAE": 5949.07,
+        "RMSE": 8060.54,
+        "R2": 0.8879,
+        "MedAE": 4701.58,
+        "MAPE(%)": 9.61,
+        "Within10%(%)": 63.48,
+        "Within20%(%)": 92.59,
+        "n_samples": 30400
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 51858.05,
+        "median": 47145.0,
+        "std": 24091.27,
+        "min": 3006.0,
+        "max": 150000.0
+      }
+    }
+  ],
+  "results": [],
+  "summary": {
+    "best": "drop (删除含缺失行)",
+    "RMSE": 8060.54,
+    "R2": 0.8879,
+    "rows": 152002
+  },
+  "created_at": "2026-10-11 23:27:05"
+}

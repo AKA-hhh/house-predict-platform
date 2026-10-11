@@ -1,0 +1,190 @@
+{
+  "experiment": "E5_异常值策略",
+  "variants": [
+    {
+      "label": "none (不处理)",
+      "params": {
+        "outlier_strategy": "none"
+      },
+      "version_id": "ds-20261011-232705-978f",
+      "raw_rows": 318851,
+      "final_rows": 318200,
+      "seconds": 10.72,
+      "test": {
+        "MAE": 15887.26,
+        "RMSE": 19630.17,
+        "R2": 0.3368,
+        "MedAE": 13434.99,
+        "MAPE(%)": 24.17,
+        "Within10%(%)": 20.42,
+        "Within20%(%)": 46.3,
+        "n_samples": 63640
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 43617.81,
+        "median": 38779.5,
+        "std": 21644.98,
+        "min": 3006.0,
+        "max": 156250.0
+      }
+    },
+    {
+      "label": "iqr k=1.5 + winsorize",
+      "params": {
+        "outlier_strategy": "iqr",
+        "iqr_k": 1.5,
+        "outlier_action": "winsorize"
+      },
+      "version_id": "ds-20261011-232718-3b53",
+      "raw_rows": 318851,
+      "final_rows": 318200,
+      "seconds": 9.95,
+      "test": {
+        "MAE": 15853.78,
+        "RMSE": 19597.01,
+        "R2": 0.339,
+        "MedAE": 13401.32,
+        "MAPE(%)": 24.13,
+        "Within10%(%)": 20.61,
+        "Within20%(%)": 46.62,
+        "n_samples": 63640
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 43617.81,
+        "median": 38779.5,
+        "std": 21644.98,
+        "min": 3006.0,
+        "max": 156250.0
+      }
+    },
+    {
+      "label": "iqr k=1.5 + clip_median",
+      "params": {
+        "outlier_strategy": "iqr",
+        "iqr_k": 1.5,
+        "outlier_action": "clip_median"
+      },
+      "version_id": "ds-20261011-232731-f927",
+      "raw_rows": 318851,
+      "final_rows": 318200,
+      "seconds": 10.38,
+      "test": {
+        "MAE": 15734.18,
+        "RMSE": 19449.97,
+        "R2": 0.3489,
+        "MedAE": 13362.05,
+        "MAPE(%)": 23.91,
+        "Within10%(%)": 20.62,
+        "Within20%(%)": 46.57,
+        "n_samples": 63640
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 43617.81,
+        "median": 38779.5,
+        "std": 21644.98,
+        "min": 3006.0,
+        "max": 156250.0
+      }
+    },
+    {
+      "label": "iqr k=3.0 (宽松)",
+      "params": {
+        "outlier_strategy": "iqr",
+        "iqr_k": 3.0,
+        "outlier_action": "winsorize"
+      },
+      "version_id": "ds-20261011-232744-cc88",
+      "raw_rows": 318851,
+      "final_rows": 318200,
+      "seconds": 11.05,
+      "test": {
+        "MAE": 15903.27,
+        "RMSE": 19648.3,
+        "R2": 0.3356,
+        "MedAE": 13435.01,
+        "MAPE(%)": 24.21,
+        "Within10%(%)": 20.37,
+        "Within20%(%)": 46.25,
+        "n_samples": 63640
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 43617.81,
+        "median": 38779.5,
+        "std": 21644.98,
+        "min": 3006.0,
+        "max": 156250.0
+      }
+    },
+    {
+      "label": "zscore 3σ",
+      "params": {
+        "outlier_strategy": "zscore",
+        "zscore_threshold": 3.0,
+        "outlier_action": "winsorize"
+      },
+      "version_id": "ds-20261011-232757-282b",
+      "raw_rows": 318851,
+      "final_rows": 318200,
+      "seconds": 9.84,
+      "test": {
+        "MAE": 15895.66,
+        "RMSE": 19628.41,
+        "R2": 0.3369,
+        "MedAE": 13373.27,
+        "MAPE(%)": 24.21,
+        "Within10%(%)": 20.12,
+        "Within20%(%)": 46.13,
+        "n_samples": 63640
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 43617.81,
+        "median": 38779.5,
+        "std": 21644.98,
+        "min": 3006.0,
+        "max": 156250.0
+      }
+    },
+    {
+      "label": "range (业务区间)",
+      "params": {
+        "outlier_strategy": "range",
+        "outlier_action": "winsorize"
+      },
+      "version_id": "ds-20261011-232809-1887",
+      "raw_rows": 318851,
+      "final_rows": 318200,
+      "seconds": 9.84,
+      "test": {
+        "MAE": 15883.19,
+        "RMSE": 19628.14,
+        "R2": 0.3369,
+        "MedAE": 13401.65,
+        "MAPE(%)": 24.17,
+        "Within10%(%)": 20.37,
+        "Within20%(%)": 46.31,
+        "n_samples": 63640
+      },
+      "target_stats": {
+        "column": "unit_price",
+        "mean": 43617.81,
+        "median": 38779.5,
+        "std": 21644.98,
+        "min": 3006.0,
+        "max": 156250.0
+      }
+    }
+  ],
+  "results": [],
+  "summary": {
+    "best": "iqr k=1.5 + clip_median",
+    "RMSE": 19449.97,
+    "R2": 0.3489,
+    "rows": 318200
+  },
+  "created_at": "2026-10-11 23:28:22"
+}

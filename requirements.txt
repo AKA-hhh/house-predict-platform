@@ -1,0 +1,23 @@
+# ============================================================
+# 二手房价格分析与预测系统 - Python 依赖清单
+# 实测环境: Python 3.13.14 / Windows x64
+# 安装:  pip install -r requirements.txt
+#        （国内网络建议加 -i https://mirrors.ustc.edu.cn/pypi/simple）
+# ============================================================
+
+# --- Web 服务层 ---
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+jinja2==3.1.6
+python-multipart==0.0.32
+
+# --- 数据处理与计算层 ---
+pandas==3.0.6            # 清洗 / 特征 / 汇总
+numpy==2.5.4
+pyarrow==26.0.0          # Parquet 列式存储
+joblib==1.6.0            # 模型持久化
+scipy==1.18.1            # 稀疏矩阵运算（协同过滤）
+
+# --- 机器学习 / 算法层 ---
+scikit-learn==1.9.1      # 线性/岭回归基线、梯度提升、随机森林、
+                         # TF-IDF 内容向量、TruncatedSVD 协同过滤、置换重要性

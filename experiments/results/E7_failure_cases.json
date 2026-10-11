@@ -1,0 +1,394 @@
+{
+  "experiment": "E7_失败案例诊断",
+  "version_id": "ds-20261011-232410-ef5c",
+  "model": "hgb (全量特征)",
+  "test_metrics": {
+    "MAE": 15840.78,
+    "RMSE": 19576.14,
+    "R2": 0.3405,
+    "MedAE": 13385.62,
+    "MAPE(%)": 24.13,
+    "Within10%(%)": 20.64,
+    "Within20%(%)": 46.63,
+    "n_samples": 63640
+  },
+  "worst_20": [
+    {
+      "house_id": "101100648953",
+      "district_name": "西城区",
+      "area": 15.0,
+      "unit_price": 10000.0,
+      "total_price": 15.0,
+      "building_age": 12.0,
+      "build_year": 2004.0,
+      "trade_time": "2016-10-11 00:00:00",
+      "pred": 113082.1,
+      "abs_err": 103082.1,
+      "ape(%)": 1030.82
+    },
+    {
+      "house_id": "101101246801",
+      "district_name": "东城区",
+      "area": 34.26,
+      "unit_price": 138062.0,
+      "total_price": 473.0,
+      "building_age": 23.0,
+      "build_year": 1994.0,
+      "trade_time": "2017-03-13 00:00:00",
+      "pred": 47595.3,
+      "abs_err": 90466.7,
+      "ape(%)": 65.53
+    },
+    {
+      "house_id": "101101084839",
+      "district_name": "西城区",
+      "area": 70.7,
+      "unit_price": 132957.0,
+      "total_price": 757.5,
+      "building_age": 32.0,
+      "build_year": 1985.0,
+      "trade_time": "2017-02-15 00:00:00",
+      "pred": 44103.1,
+      "abs_err": 88853.9,
+      "ape(%)": 66.83
+    },
+    {
+      "house_id": "101101274898",
+      "district_name": "大兴区",
+      "area": 19.65,
+      "unit_price": 115522.0,
+      "total_price": 227.0,
+      "building_age": 7.0,
+      "build_year": 2010.0,
+      "trade_time": "2017-03-05 00:00:00",
+      "pred": 31778.4,
+      "abs_err": 83743.6,
+      "ape(%)": 72.49
+    },
+    {
+      "house_id": "101101237495",
+      "district_name": "西城区",
+      "area": 40.24,
+      "unit_price": 141651.0,
+      "total_price": 570.0,
+      "building_age": 25.0,
+      "build_year": 1992.0,
+      "trade_time": "2017-03-20 00:00:00",
+      "pred": 62168.7,
+      "abs_err": 79482.3,
+      "ape(%)": 56.11
+    },
+    {
+      "house_id": "101101151087",
+      "district_name": "西城区",
+      "area": 60.85,
+      "unit_price": 146755.0,
+      "total_price": 757.5,
+      "building_age": 9.0,
+      "build_year": 2008.0,
+      "trade_time": "2017-02-21 00:00:00",
+      "pred": 69449.6,
+      "abs_err": 77305.4,
+      "ape(%)": 52.68
+    },
+    {
+      "house_id": "101101154404",
+      "district_name": "丰台区",
+      "area": 52.73,
+      "unit_price": 123270.0,
+      "total_price": 650.0,
+      "building_age": 10.0,
+      "build_year": 2007.0,
+      "trade_time": "2017-03-09 00:00:00",
+      "pred": 46751.3,
+      "abs_err": 76518.7,
+      "ape(%)": 62.07
+    },
+    {
+      "house_id": "101101094496",
+      "district_name": "西城区",
+      "area": 38.1,
+      "unit_price": 149607.0,
+      "total_price": 570.0,
+      "building_age": 11.0,
+      "build_year": 2006.0,
+      "trade_time": "2017-02-28 00:00:00",
+      "pred": 73444.4,
+      "abs_err": 76162.6,
+      "ape(%)": 50.91
+    },
+    {
+      "house_id": "101101088606",
+      "district_name": "海淀区",
+      "area": 159.70625,
+      "unit_price": 148889.0,
+      "total_price": 757.5,
+      "building_age": 16.0,
+      "build_year": 2001.0,
+      "trade_time": "2017-01-20 00:00:00",
+      "pred": 73556.2,
+      "abs_err": 75332.8,
+      "ape(%)": 50.6
+    },
+    {
+      "house_id": "101101207670",
+      "district_name": "丰台区",
+      "area": 66.22,
+      "unit_price": 123830.0,
+      "total_price": 757.5,
+      "building_age": 11.0,
+      "build_year": 2006.0,
+      "trade_time": "2017-02-27 00:00:00",
+      "pred": 50111.2,
+      "abs_err": 73718.8,
+      "ape(%)": 59.53
+    },
+    {
+      "house_id": "101091727692",
+      "district_name": "西城区",
+      "area": 90.1,
+      "unit_price": 139290.0,
+      "total_price": 757.5,
+      "building_age": 15.0,
+      "build_year": 2001.0,
+      "trade_time": "2016-12-05 00:00:00",
+      "pred": 66267.3,
+      "abs_err": 73022.7,
+      "ape(%)": 52.42
+    },
+    {
+      "house_id": "101101133819",
+      "district_name": "东城区",
+      "area": 67.89,
+      "unit_price": 147298.0,
+      "total_price": 757.5,
+      "building_age": 14.0,
+      "build_year": 2003.0,
+      "trade_time": "2017-03-20 00:00:00",
+      "pred": 76666.4,
+      "abs_err": 70631.6,
+      "ape(%)": 47.95
+    },
+    {
+      "house_id": "101100874930",
+      "district_name": "西城区",
+      "area": 50.9,
+      "unit_price": 31435.0,
+      "total_price": 160.0,
+      "building_age": 34.0,
+      "build_year": 1982.0,
+      "trade_time": "2016-11-24 00:00:00",
+      "pred": 101141.3,
+      "abs_err": 69706.3,
+      "ape(%)": 221.75
+    },
+    {
+      "house_id": "101101253260",
+      "district_name": "西城区",
+      "area": 54.77,
+      "unit_price": 149900.0,
+      "total_price": 757.5,
+      "building_age": 39.5,
+      "build_year": 1977.5,
+      "trade_time": "2017-03-15 00:00:00",
+      "pred": 80204.9,
+      "abs_err": 69695.1,
+      "ape(%)": 46.49
+    },
+    {
+      "house_id": "101101570318",
+      "district_name": "西城区",
+      "area": 55.17,
+      "unit_price": 26283.0,
+      "total_price": 145.0,
+      "building_age": 14.0,
+      "build_year": 2003.0,
+      "trade_time": "2017-05-14 00:00:00",
+      "pred": 95334.3,
+      "abs_err": 69051.3,
+      "ape(%)": 262.72
+    },
+    {
+      "house_id": "101101305981",
+      "district_name": "西城区",
+      "area": 151.12,
+      "unit_price": 149551.0,
+      "total_price": 757.5,
+      "building_age": 4.0,
+      "build_year": 2013.0,
+      "trade_time": "2017-04-03 00:00:00",
+      "pred": 80781.8,
+      "abs_err": 68769.2,
+      "ape(%)": 45.98
+    },
+    {
+      "house_id": "101101390133",
+      "district_name": "西城区",
+      "area": 23.8,
+      "unit_price": 149160.0,
+      "total_price": 355.0,
+      "building_age": 11.0,
+      "build_year": 2006.0,
+      "trade_time": "2017-05-06 00:00:00",
+      "pred": 80655.5,
+      "abs_err": 68504.5,
+      "ape(%)": 45.93
+    },
+    {
+      "house_id": "101101320649",
+      "district_name": "西城区",
+      "area": 39.0,
+      "unit_price": 132821.0,
+      "total_price": 518.0,
+      "building_age": 39.0,
+      "build_year": 1978.0,
+      "trade_time": "2017-03-15 00:00:00",
+      "pred": 64475.7,
+      "abs_err": 68345.3,
+      "ape(%)": 51.46
+    },
+    {
+      "house_id": "101101423692",
+      "district_name": "西城区",
+      "area": 25.19,
+      "unit_price": 145693.0,
+      "total_price": 367.0,
+      "building_age": 11.0,
+      "build_year": 2006.0,
+      "trade_time": "2017-04-07 00:00:00",
+      "pred": 77505.6,
+      "abs_err": 68187.4,
+      "ape(%)": 46.8
+    },
+    {
+      "house_id": "101101344196",
+      "district_name": "西城区",
+      "area": 48.4,
+      "unit_price": 143596.0,
+      "total_price": 695.0,
+      "building_age": 39.0,
+      "build_year": 1978.0,
+      "trade_time": "2017-03-22 00:00:00",
+      "pred": 76406.6,
+      "abs_err": 67189.4,
+      "ape(%)": 46.79
+    }
+  ],
+  "by_price_band": [
+    {
+      "price_band": "单价 < 3万",
+      "count": 1544,
+      "MAPE(%)": 34.39,
+      "median_APE(%)": 18.61,
+      "MBE": 1624.4
+    },
+    {
+      "price_band": "3–5万",
+      "count": 17355,
+      "MAPE(%)": 22.03,
+      "median_APE(%)": 19.36,
+      "MBE": -8578.1
+    },
+    {
+      "price_band": "5–8万",
+      "count": 29384,
+      "MAPE(%)": 24.76,
+      "median_APE(%)": 22.87,
+      "MBE": -15288.3
+    },
+    {
+      "price_band": "单价 ≥ 8万",
+      "count": 15357,
+      "MAPE(%)": 24.26,
+      "median_APE(%)": 23.95,
+      "MBE": -24273.4
+    }
+  ],
+  "by_district": [
+    {
+      "district_name": "门头沟区",
+      "count": 369.0,
+      "MAPE(%)": 29.43,
+      "MBE": -11993.0
+    },
+    {
+      "district_name": "房山区",
+      "count": 1243.0,
+      "MAPE(%)": 28.11,
+      "MBE": -10148.3
+    },
+    {
+      "district_name": "平谷区",
+      "count": 2315.0,
+      "MAPE(%)": 26.93,
+      "MBE": -13047.4
+    },
+    {
+      "district_name": "大兴区",
+      "count": 3193.0,
+      "MAPE(%)": 26.91,
+      "MBE": -12764.0
+    },
+    {
+      "district_name": "通州区",
+      "count": 587.0,
+      "MAPE(%)": 26.46,
+      "MBE": -11536.0
+    },
+    {
+      "district_name": "昌平区",
+      "count": 8617.0,
+      "MAPE(%)": 25.72,
+      "MBE": -11027.2
+    },
+    {
+      "district_name": "密云区",
+      "count": 1651.0,
+      "MAPE(%)": 25.67,
+      "MBE": -10052.4
+    },
+    {
+      "district_name": "丰台区",
+      "count": 5790.0,
+      "MAPE(%)": 25.44,
+      "MBE": -14640.2
+    },
+    {
+      "district_name": "石景山区",
+      "count": 2148.0,
+      "MAPE(%)": 24.79,
+      "MBE": -13436.6
+    },
+    {
+      "district_name": "朝阳区",
+      "count": 21336.0,
+      "MAPE(%)": 23.96,
+      "MBE": -15550.5
+    },
+    {
+      "district_name": "东城区",
+      "count": 3453.0,
+      "MAPE(%)": 22.48,
+      "MBE": -21299.8
+    },
+    {
+      "district_name": "西城区",
+      "count": 5890.0,
+      "MAPE(%)": 21.19,
+      "MBE": -21517.9
+    },
+    {
+      "district_name": "海淀区",
+      "count": 7048.0,
+      "MAPE(%)": 20.96,
+      "MBE": -16497.0
+    }
+  ],
+  "observations": [
+    "误差最大的价格区间是「单价 < 3万」（MAPE 34.39%，样本 1,544 条），该区间样本较少且分布分散，模型外推能力弱。",
+    "误差最小的价格区间是「3–5万」（MAPE 22.03%），样本量与特征密度最高。",
+    "MBE（平均偏差）为正表示模型整体高估，为负表示整体低估；分区间看可判断模型是否对高价房源系统性低估。",
+    "高误差样本集中在极端面积、极端单价与特殊小区；后续可通过小区固定效应或分层建模缓解。"
+  ],
+  "created_at": "2026-10-11 23:26:14"
+}

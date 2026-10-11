@@ -1,0 +1,45 @@
+{
+  "updated_at": "2026-10-11 23:28:41",
+  "sources": [
+    {
+      "source_id": "lianjia_bj_raw",
+      "name": "链家·北京二手房成交（原始）",
+      "source_type": "local_csv",
+      "uri": "D:\\project\\house_predict\\data\\raw\\new.csv",
+      "encoding": "gb18030",
+      "delimiter": ",",
+      "description": "链家网北京二手房成交记录 2011-11 ~ 2017-02，约 31.8 万条，26 个字段。",
+      "city": "北京",
+      "license": "CC0-1.0 (Public Domain)",
+      "attribution": "Lianjia.com 公开成交数据；整理版见 GitHub: Logical-Dhruv/housing-price-in-beijing (new.csv)；同源清洗版见 Kaggle: dhruvconnects/beijing-housing-price-cleaned",
+      "options": {
+        "header": true,
+        "chunk_size": 200000
+      },
+      "created_at": "2026-10-11 23:02:47",
+      "updated_at": "2026-10-11 23:02:47",
+      "last_run_at": "2026-10-11 23:28:41",
+      "last_run_rows": 318200
+    },
+    {
+      "source_id": "lianjia_bj_cleaned",
+      "name": "链家·北京二手房成交（上游清洗版）",
+      "source_type": "url_csv",
+      "uri": "https://raw.githubusercontent.com/Logical-Dhruv/housing-price-in-beijing/main/cleaned_data.csv",
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "description": "上游仓库已做过一次清洗/字段翻译的数据，可用于对照实验。",
+      "city": "北京",
+      "license": "CC0-1.0",
+      "attribution": "Logical-Dhruv/housing-price-in-beijing",
+      "options": {
+        "header": true,
+        "chunk_size": 200000
+      },
+      "created_at": "2026-10-11 23:02:47",
+      "updated_at": "2026-10-11 23:02:47",
+      "last_run_at": "",
+      "last_run_rows": 0
+    }
+  ]
+}
